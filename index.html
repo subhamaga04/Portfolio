@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subham Agarwal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #101820;
+      color: #f4f4f9;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      transition: background 0.3s ease;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: #ecf0f1;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      animation: fadeIn 2s ease-out 0.5s;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: fill;
+      margin: 2rem auto 1rem;
+      border: 4px solid #ecf0f1;
+      box-shadow: 0 0 20px rgba(236, 240, 241, 0.4);
+      animation: fadeIn 2s ease-out 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      color: #00ffc8;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #00ffc8;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .grid div {
+      background: #1f2937;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .grid div:hover {
+      transform: translateY(-5px);
+    }
+
+    .grid div strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      background: #00ffc8;
+      color: #101820;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a1a1a;
+      color: #bbb;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-mode:hover {
+      background: #00ffc8;
+      color: #000;
+    }
+
+    /* Light Mode */
+    .light {
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    .light header {
+      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    }
+
+    .light .grid div {
+      background: #ffffff;
+      color: #333;
+    }
+
+    .light .btn {
+      background: #333;
+      color: #fff;
+    }
+
+    .light .btn:hover {
+      background: #00ffc8;
+      color: #000;
+    }
+
+    .light section h2 {
+      color: #333;
+      border-color: #333;
+    }
+
+    .light footer {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header text and image fix in light mode */
+    .light header h1 {
+      color: #101820;  /* Dark text in light mode */
+    }
+
+    .light header p {
+      color: #333;  /* Dark text for contrast */
+    }
+
+    .light .profile-img {
+      border: 4px solid #333; /* Dark border in light mode */
+    }
+
+    /* Add emoji styles */
+    .emoji {
+      font-size: 1.5rem;
+      margin-left: 5px;
+    }
+
+    /* SVG Icon Styles */
+    .svg-icon {
+      width: 24px;
+      height: 24px;
+      fill: #00ffc8;
+      margin-right: 8px;
+      transition: fill 0.3s ease;
+    }
+
+    .svg-icon:hover {
+      fill: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="toggleMode()">🌙</button>
+
+  <header>
+    <img src="./assets/Images/WhatsApp Image 2025-03-27 at 15.14.35_ca5da694.jpg" alt="Profile" class="profile-img" />
+    <h1>Subham Agarwal</h1>
+    <p>
+      I'm a B.Tech Computer Science student at South Asian University with a passion for coding,
+      data analysis, and geopolitics. I enjoy diving into books, music, films, academic research, and aircraft. <span class="emoji">✈️</span>
+    </p>
+  </header>
+
+  <section>
+    <h2>Education <span class="emoji">🎓</span></h2>
+    <ul>
+      <li><strong>B.Tech CSE</strong>, South Asian University, New Delhi (2024–Present)</li>
+      <li>Currently in 1st Year – Enrollment No: SAU/CS/BTECH(CSE)/2024/65</li>
+      <li>Class XII, ISG, Guwahati (2023)</li>
+      <li>Class X, Don Bosco School, Guwahati (2021)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Technical Skills <span class="emoji">💻</span></h2>
+    <div class="grid">
+      <div>
+        <strong>Languages:</strong>
+        <ul><li>C, Python (Moderate), HTML, CSS, JavaScript</li></ul>
+      </div>
+      <div>
+        <strong>Tools:</strong>
+        <ul><li>VS Code, Git, GitHub, Canva, Adobe</li></ul>
+      </div>
+      <div>
+        <strong>Interests:</strong>
+        <ul><li>Web Design, Front-end Dev, Data Structures, Algorithms, Data-Analysis</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Soft Skills <span class="emoji">🧠</span></h2>
+    <ul>
+      <li><strong>Teamwork:</strong> I have consistently collaborated in diverse teams, contributing positively by listening to others’ ideas, offering constructive feedback, and working towards collective goals. This ability has allowed me to thrive in both team-based and cross-functional projects.</li>
+      <li><strong>Communication:</strong> Through clear and effective communication, both verbal and written, I have successfully conveyed complex information to various stakeholders. My communication skills have enabled me to build strong relationships and foster a positive working environment.</li>
+      <li><strong>Time Management:</strong> I am adept at managing multiple tasks and meeting deadlines by prioritizing tasks, setting realistic goals, and maintaining focus. This skill has helped me optimize productivity and deliver results efficiently in fast-paced environments.</li>
+      <li><strong>Creativity:</strong> I approach problem-solving with a creative mindset, often thinking outside the box to generate innovative solutions. My ability to bring fresh ideas to the table has been instrumental in enhancing team performance and improving processes.</li>
+    </ul>
+</section>
+
+
+  <section>
+    <h2>Positions & Activities <span class="emoji">🏆</span></h2>
+    <ul>
+      <li>Founder and Board Member – CSTC, SAU</li>
+      <li>Ex-NCC</li>
+      <li>Swimmer</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact <span class="emoji">📞</span></h2>
+    <ul>
+      <li>Phone: 7636xxxxxx</li>
+      <li>Email: subh###@gmail.com</li>
+    </ul>
+    <div class="buttons">
+      <a class="btn" href="https://github.com/subhamaga04" target="_blank">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.799 8.207 11.387.6.111.793-.263.793-.585 0-.289-.01-1.065-.016-2.091-3.338.727-4.04-1.347-4.04-1.347-.547-1.396-1.335-1.766-1.335-1.766-1.09-.743.084-.729.084-.729 1.204.085 1.837 1.235 1.837 1.235 1.07 1.837 2.804 1.304 3.49.997.107-.776.418-1.304.76-1.604-2.664-.299-5.466-1.332-5.466-5.93 0-1.31.468-2.384 1.236-3.219-.124-.302-.536-1.515.116-3.15 0 0 1.008-.322 3.298 1.23 1.774-.494 3.688-.494 5.462 0 2.29-1.552 3.297-1.23 3.297-1.23.653 1.635.24 2.848.116 3.15.769.836 1.236 1.909 1.236 3.219 0 4.604-2.804 5.63-5.474 5.926.428.369.804 1.099.804 2.222 0 1.607-.014 2.897-.014 3.288 0 .322.193.698.804.585C20.563 21.799 24 17.303 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/subham-agarwal-568327333/" target="_blank">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.207 0C2.193 0 1.25.953 1.25 2.067V21.933C1.25 23.047 2.193 24 3.207 24h17.586c1.014 0 1.957-.953 1.957-2.067V2.067C22.75.953 21.807 0 20.793 0H3.207zM8.625 18.75H5.25V9.75h3.375v9zm-1.688-11.25C6.206 7.5 6 7.212 6 6.75c0-.463.206-.75.938-.75.732 0 .937.287.937.75 0 .462-.205.75-.937.75zm9.438 11.25h-3.375v-4.5c0-1.08-.393-1.803-1.375-1.803-.746 0-1.188.503-1.375 1.016-.071.17-.089.406-.089.643v4.5h-3.375V9.75h3.375v1.25c.461-.711 1.227-1.25 2.125-1.25 1.625 0 2.875 1.049 2.875 3.125v5.125z"/>
+          </svg>
+          LinkedIn
+      </a>
+      <a class="btn" href="https://www.instagram.com/subhamag20/" target="_blank">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.07 0 3.405.011 4.604.067 1.199.057 2.015.272 2.478.57.464.298.784.684 1.076 1.071.298.464.514.994.572 1.567.056 1.201.067 1.434.067 4.603s-.011 3.403-.067 4.604c-.057.574-.274 1.103-.572 1.567-.292.387-.612.773-1.076 1.071-.463.298-1.279.513-2.478.57-1.199.056-1.534.067-4.604.067s-3.405-.011-4.604-.067c-1.199-.057-2.015-.272-2.478-.57-.464-.298-.784-.684-1.076-1.071-.298-.464-.514-.994-.572-1.567-.056-1.201-.067-1.434-.067-4.603s.011-3.403.067-4.604c.057-.574.274-1.103.572-1.567.292-.387.612-.773 1.076-1.071.463-.298 1.279-.513 2.478-.57 1.199-.056 1.534-.067 4.604-.067zm0 1.25c-3.029 0-3.373.01-4.545.065-1.152.056-1.954.248-2.531.577-.578.329-.94.773-1.28 1.28-.328.577-.521 1.379-.577 2.531-.056 1.172-.065 1.516-.065 4.545s.01 3.373.065 4.545c.056 1.152.248 1.954.577 2.531.34.507.702.951 1.28 1.28.577.329 1.379.521 2.531.577 1.172.056 1.516.065 4.545.065s3.373-.01 4.545-.065c1.152-.056 1.954-.248 2.531-.577.578-.329.94-.773 1.28-1.28.328-.577.521-1.379.577-2.531.056-1.172.065-1.516.065-4.545s-.01-3.373-.065-4.545c-.056-1.152-.248-1.954-.577-2.531-.34-.507-.702-.951-1.28-1.28-.577-.329-1.379-.521-2.531-.577-1.172-.056-1.516-.065-4.545-.065zm0 3.127c2.38 0 4.302 1.922 4.302 4.302s-1.922 4.302-4.302 4.302-4.302-1.922-4.302-4.302 1.922-4.302 4.302-4.302zm0 7.254c1.654 0 3.002-1.348 3.002-3.002s-1.348-3.002-3.002-3.002-3.002 1.348-3.002 3.002 1.348 3.002 3.002 3.002z"/>
+          </svg>
+          Instagram
+      </a>
+  </div>
+  
+  
+  </section>
+
+  <footer>
+    &copy; 2025 Subham Agarwal. <span class="emoji">🌍</span>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+      document.querySelector('.toggle-mode').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
